@@ -2,14 +2,14 @@ import React from "react";
 
 // stateless functional component
 
-const NavBar = (props) => {
+const NavBar = ({ totalCounters }) => {
   return (
     <nav className="navbar navbar-light bg-light">
       {/* eslint-disable-next-line */}
       <a href="#" className="navbar-brand">
         Navbar{" "}
         <span className="badge badge-pill badge-secondary">
-          {props.totalCounters}
+          {totalCounters}
         </span>
       </a>
     </nav>
