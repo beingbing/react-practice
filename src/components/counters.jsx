@@ -3,7 +3,7 @@ import Counter from "./counter";
 
 class Counters extends Component {
   state = {
-    counter: [
+    counters: [
       { id: 1, value: 0 },
       { id: 2, value: 9 },
       { id: 3, value: 5 },
@@ -11,17 +11,18 @@ class Counters extends Component {
     ],
   };
 
-  handleDelete = () => {
-    console.log("event handler called");
+  handleDelete = (counterId) => {
+    const counters = this.state.counters.filter((c) => c.id !== counterId);
+    this.setState({ counters });
   };
 
   render() {
     return (
       <div>
-        {this.state.counter.map((cntr) => (
+        {this.state.counters.map((cntr) => (
           <Counter
             key={cntr.id}
-            value={cntr.value}
+            counter={cntr}
             onDelete={this.handleDelete}
           ></Counter>
         ))}
